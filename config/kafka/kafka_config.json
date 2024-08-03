@@ -1,4 +1,0 @@
-{
-    "bootstrap_servers": ["10.128.0.7:9092"],
-    "subscribe_topic": "website_events"
-}
