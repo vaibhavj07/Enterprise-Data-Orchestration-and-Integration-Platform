@@ -17,7 +17,7 @@ def load_config(config_path):
 
 def load_spark_config(use_case="default"):
     try:
-        config_path = '/home/datashiptest/marketing-project/config/spark_config.json'
+        config_path = '/home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform/config/spark_config.json'
         with open(config_path, 'r') as f:
             config = json.load(f)
         if use_case in config:

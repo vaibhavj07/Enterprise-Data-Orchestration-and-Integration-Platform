@@ -10,7 +10,7 @@ from spark_session_builder import create_spark_session
 logger = setup_logging()
 
 # Load Kafka configuration
-kafka_config = load_config('/home/datashiptest/marketing-project/config/kafka/kafka_config.json')
+kafka_config = load_config('/home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform/config/kafka/kafka_config.json')
 
 # Create Spark session
 spark, landing_zone_path = create_spark_session(app_name="KafkaRawIngestion", use_case="websiteevents")

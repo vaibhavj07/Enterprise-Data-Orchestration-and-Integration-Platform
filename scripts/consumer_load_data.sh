@@ -1,7 +1,7 @@
 #!/bin/bash
 
 # Define the base directory
-BASE_DIR="/home/datashiptest/marketing-project"
+BASE_DIR="/home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform"
 
 # Kafka and Spark configuration paths
 KAFKA_CONFIG="${BASE_DIR}/config/kafka/kafka_config.json"
