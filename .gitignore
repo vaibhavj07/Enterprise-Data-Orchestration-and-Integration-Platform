@@ -5,4 +5,4 @@ airflow-venv-main/
 config/kafka/kafka_config.json
 config/kafka/kafka_secrets.json
 config/spark_config.json
-tests
+tests/
