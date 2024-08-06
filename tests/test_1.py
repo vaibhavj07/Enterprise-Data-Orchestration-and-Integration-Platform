@@ -1,21 +1,20 @@
 import logging
+from pyspark.sql import SparkSession
 from pyspark.sql.functions import from_json, col, to_date
 from pyspark.sql.types import StructType, StructField, StringType, FloatType, TimestampType, ArrayType
-from config import load_config
-from kafka_reader import read_from_kafka
-from logging_utils import setup_logging
-from spark_session_builder import create_spark_session
 
-# Set up logging
-logger = setup_logging()
+# Configure logging
+logging.basicConfig(level=logging.INFO)
+logger = logging.getLogger(__name__)
 
-# Load Kafka configuration
-kafka_config = load_config('/home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform/config/kafka/kafka_config.json')
+# Initialize Spark session with Hive support
+spark = SparkSession.builder \
+    .appName("KafkaRawIngestionTest") \
+    .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2") \
+    .enableHiveSupport() \
+    .getOrCreate()
 
-# Create Spark session
-spark, landing_zone_path = create_spark_session(app_name="KafkaRawIngestion", use_case="websiteevents")
-if not spark:
-    raise Exception("Failed to create Spark session")
+logger.info("Spark session initialized.")
 
 # Define schema for incoming data
 schema = StructType([
@@ -45,7 +44,12 @@ schema = StructType([
 logger.info("Schema defined.")
 
 # Read data from Kafka
-df = read_from_kafka(spark, kafka_config)
+df = spark \
+    .readStream \
+    .format("kafka") \
+    .option("kafka.bootstrap.servers", "10.128.0.7:9092") \
+    .option("subscribe", "website_events") \
+    .load()
 
 logger.info("Data read from Kafka.")
 
@@ -61,49 +65,64 @@ df = df.withColumn("timestamp", col("timestamp").cast(TimestampType()))
 # Extract date from timestamp for partitioning
 df = df.withColumn("date", to_date(col("timestamp")))
 
+# Define a custom ForeachWriter to log each row
+class LogRowWriter:
+    def open(self, partition_id, epoch_id):
+        return True
+
+    def process(self, row):
+        logger.info(f"Processed row: {row}")
+
+    def close(self, error):
+        if error:
+            logger.error(f"Error: {error}")
+
+# Use the custom ForeachWriter to log each row
+log_query = df.writeStream \
+    .foreach(LogRowWriter()) \
+    .start()
+
 # Create an external Hive table if not exists
-def create_hive_table(spark, landing_zone_path):
-    spark.sql(f"""
-        CREATE EXTERNAL TABLE IF NOT EXISTS prd.website_events (
-            event_id STRING,
-            user_id STRING,
-            page_url STRING,
-            timestamp TIMESTAMP,
-            event_type STRING,
-            referrer STRING,
-            interaction_id STRING,
-            product_id STRING,
-            interaction_type STRING,
-            session_id STRING,
-            conversion_id STRING,
-            campaign_id STRING,
-            conversion_value FLOAT,
-            signup_id STRING,
-            email STRING,
-            signup_source STRING,
-            start_time STRING,
-            end_time STRING,
-            duration FLOAT,
-            pages_viewed STRING,
-            actions ARRAY<STRING>
-        ) PARTITIONED BY (date STRING)
-        STORED AS PARQUET
-        LOCATION '{landing_zone_path}'
-    """)
-
-create_hive_table(spark, landing_zone_path)
-
+spark.sql("""
+    CREATE EXTERNAL TABLE IF NOT EXISTS prd.website_events (
+        event_id STRING,
+        user_id STRING,
+        page_url STRING,
+        timestamp TIMESTAMP,
+        event_type STRING,
+        referrer STRING,
+        interaction_id STRING,
+        product_id STRING,
+        interaction_type STRING,
+        session_id STRING,
+        conversion_id STRING,
+        campaign_id STRING,
+        conversion_value FLOAT,
+        signup_id STRING,
+        email STRING,
+        signup_source STRING,
+        start_time STRING,
+        end_time STRING,
+        duration FLOAT,
+        pages_viewed STRING,
+        actions ARRAY<STRING>
+    ) PARTITIONED BY (date STRING)
+    STORED AS PARQUET
+    LOCATION 'hdfs://dataship-cluster-m:8051/landingzone1/websiteevents'
+""")
 logger.info("External Hive table created.")
 
 # Write raw data to HDFS partitioned by date
 hdfs_query = df.writeStream \
     .outputMode("append") \
     .format("parquet") \
-    .option("path", landing_zone_path) \
-    .option("checkpointLocation", spark.conf.get("spark.sql.streaming.checkpointLocation")) \
+    .option("path", "hdfs://dataship-cluster-m:8051/landingzone1/websiteevents") \
+    .option("checkpointLocation", "hdfs://dataship-cluster-m:8051/tmp/checkpoints/hdfs") \
+    .trigger(processingTime="10 seconds") \
     .partitionBy("date") \
     .start()
 
 logger.info("Writing data to HDFS.")
 
+log_query.awaitTermination()
 hdfs_query.awaitTermination()

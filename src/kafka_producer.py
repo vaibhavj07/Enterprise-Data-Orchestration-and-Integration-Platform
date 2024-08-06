@@ -1,6 +1,6 @@
 import json
 import time
-import random  # Import the random module
+import random 
 from kafka import KafkaProducer
 from config import kafka_config, kafka_secrets
 from data_generator import generate_event
@@ -26,4 +26,4 @@ if __name__ == "__main__":
     while True:
         event = generate_event()
         producer.send_event('website_events', event)
-        time.sleep(random.uniform(0.1, 1.0))  # Adjust the rate of event generation as needed
+        time.sleep(random.uniform(0.1, 1))  # Adjust the rate of event generation as needed

@@ -30,21 +30,7 @@ bootstrap_servers=$(echo "$bootstrap_servers" | xargs)
 subscribe_topic=$(echo "$subscribe_topic" | xargs)
 
 # Output the extracted values
-echo "Checkpoint Location: $checkpoint_location"
-echo "HDFS Path: $hdfs_path"
-echo "Bootstrap Servers: $bootstrap_servers"
-echo "Subscribe Topic: $subscribe_topic"
-
-# Submit the Spark job
-spark-submit \
-    --master yarn \
-    --deploy-mode cluster \
-    --packages org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2 \
-    --conf spark.executor.memory=2g \
-    --conf spark.executor.cores=1 \
-    --conf spark.executor.instances=2 \
-    /home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform/src/stream_data_ingest.py \
-    --checkpoint-location "$checkpoint_location" \
-    --hdfs-path "$hdfs_path" \
-    --bootstrap-servers "$bootstrap_servers" \
-    --subscribe-topic "$subscribe_topic"
+echo "Checkpoint Location:$checkpoint_location"
+echo "HDFS Path:$hdfs_path"
+echo "Bootstrap Servers:$bootstrap_servers"
+echo "Subscribe Topic:$subscribe_topic"

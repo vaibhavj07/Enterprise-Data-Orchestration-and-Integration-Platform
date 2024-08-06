@@ -10,9 +10,9 @@ logger = logging.getLogger(__name__)
 # Initialize Spark session with Hive support
 spark = SparkSession.builder \
     .appName("KafkaRawIngestionTest") \
-    .master("yarn") \
+    .master("local[*]") \
+    .config("spark.jars.packages", "org.apache.spark:spark-sql-kafka-0-10_2.12:3.1.2") \
     .enableHiveSupport() \
-    .config("spark.sql.streaming.checkpointLocation", "/tmp/checkpoints") \
     .config("spark.executor.memory", "2g") \
     .config("spark.executor.cores", "1") \
     .config("spark.executor.instances", "2") \
@@ -69,26 +69,19 @@ df = df.withColumn("timestamp", col("timestamp").cast(TimestampType()))
 # Extract date from timestamp for partitioning
 df = df.withColumn("date", to_date(col("timestamp")))
 
-# Define a custom ForeachWriter to log each row
-class LogRowWriter:
-    def open(self, partition_id, epoch_id):
-        return True
+# Function to log data in each batch
+def log_data_in_batches(batch_df, batch_id):
+    logger.info(f"Batch ID: {batch_id}")
+    batch_df.show(truncate=False)
 
-    def process(self, row):
-        logger.info(f"Processed row: {row}")
-
-    def close(self, error):
-        if error:
-            logger.error(f"Error: {error}")
-
-# Use the custom ForeachWriter to log each row
+# Use foreachBatch to log each batch of data
 log_query = df.writeStream \
-    .foreach(LogRowWriter()) \
+    .foreachBatch(log_data_in_batches) \
     .start()
 
 # Create an external Hive table if not exists
 spark.sql("""
-    CREATE EXTERNAL TABLE IF NOT EXISTS website_events (
+    CREATE EXTERNAL TABLE IF NOT EXISTS prd.website_events (
         event_id STRING,
         user_id STRING,
         page_url STRING,
@@ -112,7 +105,7 @@ spark.sql("""
         actions ARRAY<STRING>
     ) PARTITIONED BY (date STRING)
     STORED AS PARQUET
-    LOCATION '/landingzone1/websiteevents'
+    LOCATION 'hdfs://dataship-cluster-m/landingzone1/websiteevents'
 """)
 logger.info("External Hive table created.")
 
@@ -120,8 +113,8 @@ logger.info("External Hive table created.")
 hdfs_query = df.writeStream \
     .outputMode("append") \
     .format("parquet") \
-    .option("path", "/landingzone1/websiteevents") \
-    .option("checkpointLocation", "/tmp/checkpoints/hdfs") \
+    .option("path", "hdfs://dataship-cluster-m/landingzone1/websiteevents") \
+    .option("checkpointLocation", "hdfs://dataship-cluster-m/tmp/checkpoints/hdfs") \
     .partitionBy("date") \
     .start()
 

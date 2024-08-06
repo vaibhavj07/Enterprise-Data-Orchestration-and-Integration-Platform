@@ -43,7 +43,7 @@ spark-submit \
     --conf spark.executor.memory=2g \
     --conf spark.executor.cores=1 \
     --conf spark.executor.instances=2 \
-    /home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform/src/stream_data_ingest.py \
+    /home/datashiptest/Enterprise-Data-Orchestration-and-Integration-Platform/tests/raw_data_ingest_test.py \
     --checkpoint-location "$checkpoint_location" \
     --hdfs-path "$hdfs_path" \
     --bootstrap-servers "$bootstrap_servers" \
