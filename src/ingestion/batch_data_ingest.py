@@ -6,12 +6,9 @@ import urllib.request
 
 #parse credentials.json
 #returns dictionary
-def fetch_credentials(bucket_name, file_path):
-    client = storage.Client()
-    bucket = client.get_bucket(bucket_name)
-    blob = bucket.blob(file_path)
-    credentials = json.loads(blob.download_as_string())
-
+def fetch_credentials(file_path):
+    with open(file_path, 'r') as file:
+        credentials = json.load(file)
     return credentials
 
 #for creating spark app for each source
@@ -22,14 +19,14 @@ def spark_session(app_name):
         .getOrCreate()
 
 #extract sql
-def test_extract_sql(spark, jdbc_url, query, driver):
+def extract_sql(spark, jdbc_url, query, driver):
     try:
         df = spark.read.format("jdbc") \
             .option("url", jdbc_url) \
-            .option("query", query) \
             .option("driver", driver) \
+            .option("query", query) \
             .load()
-        df.head()
+        return df
     except Exception as e:
         print(f"Error reading data from JDBC source: {e}")
         raise
@@ -44,9 +41,6 @@ def extract_mongo(spark, mongo_uri, table_name, driver):
         .option("driver", driver) \
         .load()
     return df.head()
-
-
-#
 
 
 if __name__ == "__main__":

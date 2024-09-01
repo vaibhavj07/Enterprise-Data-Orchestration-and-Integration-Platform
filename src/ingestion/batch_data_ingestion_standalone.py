@@ -30,7 +30,7 @@ def batch_ingestion():
 
     spark = SparkSession.builder \
     .appName(args.app_name) \
-    .config("spark.jars", "mssql-jdbc-12.8.0.jre8.jar") \
+    .config("spark.jars", "mssql-jdbc-12.8.0.jre11.jar") \
     .config("spark.mongodb.read.connection.uri", args.mongo_uri) \
     .config("spark.mongodb.connection.timeoutMS", "60000") \
     .config("spark.mongodb.connection.debug", "true") \

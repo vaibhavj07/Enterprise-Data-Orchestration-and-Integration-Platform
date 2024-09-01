@@ -1,0 +1,420 @@
+Container: container_1723502017782_0003_01_000001 on dataship-cluster-w-0.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:prelaunch.out
+LogLastModifiedTime:Mon Aug 12 23:32:48 +0000 2024
+LogLength:100
+LogContents:
+Setting up env variables
+Setting up job resources
+Copying debugging information
+Launching container
+
+End of LogType:prelaunch.out
+******************************************************************************
+
+Container: container_1723502017782_0003_01_000001 on dataship-cluster-w-0.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:stdout
+LogLastModifiedTime:Mon Aug 12 23:32:51 +0000 2024
+LogLength:571
+LogContents:
+Traceback (most recent call last):
+  File "sql_ingestion_tests.py", line 79, in <module>
+    test_extract_sql()
+  File "sql_ingestion_tests.py", line 42, in test_extract_sql
+    credentials = fetch_credentials(file_path)
+  File "/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003/container_1723502017782_0003_01_000001/utils.zip/utils/ingestion_utils.py", line 6, in fetch_credentials
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yasin/Enterprise-Data-Orchestration-and-Integration-Platform/config/credentials_yasin.json'
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1723502017782_0003_01_000001 on dataship-cluster-w-0.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:directory.info
+LogLastModifiedTime:Mon Aug 12 23:32:48 +0000 2024
+LogLength:5787
+LogContents:
+ls -l:
+total 48
+lrwxrwxrwx 1 yarn yarn   73 Aug 12 23:32 __spark_conf__ -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/23/__spark_conf__.zip
+-rw-r--r-- 1 yarn yarn   74 Aug 12 23:32 container_tokens
+-rwx------ 1 yarn yarn  708 Aug 12 23:32 default_container_executor.sh
+-rwx------ 1 yarn yarn  653 Aug 12 23:32 default_container_executor_session.sh
+-rwx------ 1 yarn yarn 5542 Aug 12 23:32 launch_container.sh
+lrwxrwxrwx 1 yarn yarn   82 Aug 12 23:32 mssql-jdbc-12.8.0.jre11.jar -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/22/mssql-jdbc-12.8.0.jre11.jar
+lrwxrwxrwx 1 yarn yarn   74 Aug 12 23:32 py4j-0.10.9-src.zip -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/25/py4j-0.10.9-src.zip
+lrwxrwxrwx 1 yarn yarn   66 Aug 12 23:32 pyspark.zip -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/21/pyspark.zip
+lrwxrwxrwx 1 yarn yarn   77 Aug 12 23:32 sql_ingestion_tests.py -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/24/sql_ingestion_tests.py
+drwx--x--- 2 yarn yarn 4096 Aug 12 23:32 tmp
+lrwxrwxrwx 1 yarn yarn   64 Aug 12 23:32 utils.zip -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/20/utils.zip
+find -L . -maxdepth 5 -ls:
+  1586248      4 drwx--x---   3 yarn     yarn         4096 Aug 12 23:32 .
+  1586258      4 -rwx------   1 yarn     yarn          708 Aug 12 23:32 ./default_container_executor.sh
+  1585918      4 -r-x------   1 yarn     yarn         3855 Aug 12 23:32 ./utils.zip
+  1586250      4 -rw-r--r--   1 yarn     yarn           74 Aug 12 23:32 ./container_tokens
+  1586253      4 -rw-r--r--   1 yarn     yarn           52 Aug 12 23:32 ./.launch_container.sh.crc
+  1586231      4 -r-x------   1 yarn     yarn         2494 Aug 12 23:32 ./sql_ingestion_tests.py
+  1586249      4 drwx--x---   2 yarn     yarn         4096 Aug 12 23:32 ./tmp
+  1585934    868 -r-x------   1 yarn     yarn       887352 Aug 12 23:32 ./pyspark.zip
+  1585949   1448 -r-x------   1 yarn     yarn      1481161 Aug 12 23:32 ./mssql-jdbc-12.8.0.jre11.jar
+  1586254      4 -rwx------   1 yarn     yarn          653 Aug 12 23:32 ./default_container_executor_session.sh
+  1586252      8 -rwx------   1 yarn     yarn         5542 Aug 12 23:32 ./launch_container.sh
+  1586255      4 -rw-r--r--   1 yarn     yarn           16 Aug 12 23:32 ./.default_container_executor_session.sh.crc
+  1586251      4 -rw-r--r--   1 yarn     yarn           12 Aug 12 23:32 ./.container_tokens.crc
+  1586234     44 -r-x------   1 yarn     yarn        41587 Aug 12 23:32 ./py4j-0.10.9-src.zip
+  1586259      4 -rw-r--r--   1 yarn     yarn           16 Aug 12 23:32 ./.default_container_executor.sh.crc
+  1585966      4 drwx------   3 yarn     yarn         4096 Aug 12 23:32 ./__spark_conf__
+  1585969      4 drwx------   2 yarn     yarn         4096 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__
+  1586213      4 -r-x------   1 yarn     yarn         2316 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/ssl-client.xml.example
+  1586204      4 -r-x------   1 yarn     yarn         1335 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/configuration.xsl
+  1586198      8 -r-x------   1 yarn     yarn         4139 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/core-site.xml
+  1586218      8 -r-x------   1 yarn     yarn         4113 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/mapred-queues.xml.template
+  1585975     20 -r-x------   1 yarn     yarn        17275 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hadoop-env.sh
+  1585999      4 -r-x------   1 yarn     yarn         3321 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hadoop-metrics2.properties
+  1586002      4 -r-x------   1 yarn     yarn           82 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/yarn-timelineserver.logging.properties
+  1586210      8 -r-x------   1 yarn     yarn         7552 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/yarn-env.sh
+  1586215     12 -r-x------   1 yarn     yarn        11392 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hadoop-policy.xml
+  1586216      4 -r-x------   1 yarn     yarn          977 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/fairscheduler.xml
+  1586211      4 -r-x------   1 yarn     yarn         1940 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/container-executor.cfg
+  1585998     16 -r-x------   1 yarn     yarn        14772 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/log4j.properties
+  1586199     12 -r-x------   1 yarn     yarn         9533 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/capacity-scheduler.xml
+  1586003     12 -r-x------   1 yarn     yarn         8742 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/yarn-site.xml
+  1586212      4 -r-x------   1 yarn     yarn         2163 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/mapred-env.sh
+  1586217      4 -r-x------   1 yarn     yarn         2697 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/ssl-server.xml.example
+  1586205      8 -r-x------   1 yarn     yarn         7741 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hdfs-site.xml
+  1585974     12 -r-x------   1 yarn     yarn         8428 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/mapred-site.xml
+  1586214      4 -r-x------   1 yarn     yarn         1535 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/distcp-default.xml
+  1585967      4 -r-x------   1 yarn     yarn         1225 Aug 12 23:32 ./__spark_conf__/log4j.properties
+  1586219    152 -r-x------   1 yarn     yarn       153429 Aug 12 23:32 ./__spark_conf__/__spark_hadoop_conf__.xml
+  1585968      4 -r-x------   1 yarn     yarn          703 Aug 12 23:32 ./__spark_conf__/metrics.properties
+  1586221      4 -r-x------   1 yarn     yarn          924 Aug 12 23:32 ./__spark_conf__/__spark_dist_cache__.properties
+  1586220      4 -r-x------   1 yarn     yarn         2457 Aug 12 23:32 ./__spark_conf__/__spark_conf__.properties
+broken symlinks(find -L . -maxdepth 5 -type l -ls):
+
+End of LogType:directory.info
+*******************************************************************************
+
+Container: container_1723502017782_0003_01_000001 on dataship-cluster-w-0.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:stderr
+LogLastModifiedTime:Mon Aug 12 23:32:51 +0000 2024
+LogLength:1676
+LogContents:
+24/08/12 23:32:51 ERROR org.apache.spark.deploy.yarn.ApplicationMaster: User application exited with status 1
+24/08/12 23:32:51 ERROR org.apache.spark.deploy.yarn.ApplicationMaster: Uncaught exception: 
+org.apache.spark.SparkException: Exception thrown in awaitResult: 
+	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.runDriver(ApplicationMaster.scala:504)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.run(ApplicationMaster.scala:268)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:899)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:898)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1762)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$.main(ApplicationMaster.scala:898)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.main(ApplicationMaster.scala)
+Caused by: org.apache.spark.SparkUserAppException: User application exited with 1
+	at org.apache.spark.deploy.PythonRunner$.main(PythonRunner.scala:103)
+	at org.apache.spark.deploy.PythonRunner.main(PythonRunner.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:732)
+
+End of LogType:stderr
+***********************************************************************
+
+
+End of LogType:prelaunch.err
+******************************************************************************
+
+Container: container_1723502017782_0003_01_000001 on dataship-cluster-w-0.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:launch_container.sh
+LogLastModifiedTime:Mon Aug 12 23:32:48 +0000 2024
+LogLength:5542
+LogContents:
+#!/bin/bash
+
+set -o pipefail -e
+export PRELAUNCH_OUT="/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/prelaunch.out"
+exec >"${PRELAUNCH_OUT}"
+export PRELAUNCH_ERR="/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/prelaunch.err"
+exec 2>"${PRELAUNCH_ERR}"
+echo "Setting up env variables"
+export PATH=${PATH:-"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
+export JAVA_HOME=${JAVA_HOME:-"/usr/lib/jvm/temurin-8-jdk-amd64"}
+export HADOOP_COMMON_HOME=${HADOOP_COMMON_HOME:-"/usr/lib/hadoop"}
+export HADOOP_HDFS_HOME=${HADOOP_HDFS_HOME:-"/usr/lib/hadoop-hdfs"}
+export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop/conf"}
+export HADOOP_YARN_HOME=${HADOOP_YARN_HOME:-"/usr/lib/hadoop-yarn"}
+export HADOOP_MAPRED_HOME=${HADOOP_MAPRED_HOME:-"/usr/lib/hadoop-mapreduce"}
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-":/usr/lib/hadoop/lib/native"}
+export LANG=${LANG:-"C.UTF-8"}
+export HADOOP_TOKEN_FILE_LOCATION="/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003/container_1723502017782_0003_01_000001/container_tokens"
+export CONTAINER_ID="container_1723502017782_0003_01_000001"
+export NM_PORT="8026"
+export NM_HOST="dataship-cluster-w-0.us-central1-c.c.encoded-region-428305-i4.internal"
+export NM_HTTP_PORT="8042"
+export LOCAL_DIRS="/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003"
+export LOCAL_USER_DIRS="/hadoop/yarn/nm-local-dir/usercache/yasin/"
+export LOG_DIRS="/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001"
+export USER="yasin"
+export LOGNAME="yasin"
+export HOME="/home/"
+export PWD="/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003/container_1723502017782_0003_01_000001"
+export LOCALIZATION_COUNTERS="2704168,0,6,0,173"
+export JVM_PID="$$"
+export NM_AUX_SERVICE_spark_shuffle=""
+export NM_AUX_SERVICE_mapreduce_shuffle="AAA0+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+export SPARK_YARN_STAGING_DIR="hdfs://dataship-cluster-m/user/yasin/.sparkStaging/application_1723502017782_0003"
+export APP_SUBMIT_TIME_ENV="1723505567857"
+export PYSPARK_PYTHON="/opt/conda/default/bin/python"
+export PYTHONHASHSEED="0"
+export PYTHONPATH="/home/yasin/Enterprise-Data-Orchestration-and-Integration-Platform/src:$PWD/pyspark.zip:$PWD/py4j-0.10.9-src.zip:$PWD/utils.zip"
+export APPLICATION_WEB_PROXY_BASE="/proxy/application_1723502017782_0003"
+export SPARK_DIST_CLASSPATH=":/etc/hive/conf:/usr/local/share/google/dataproc/lib/*:/usr/share/java/mysql.jar"
+export CLASSPATH="$PWD:$PWD/__spark_conf__:$PWD/__spark_libs__/*:/usr/lib/spark/jars/*::/etc/hive/conf:/usr/local/share/google/dataproc/lib/*:/usr/share/java/mysql.jar:$PWD/__spark_conf__/__hadoop_conf__"
+export SPARK_USER="yasin"
+export MALLOC_ARENA_MAX="4"
+echo "Setting up job resources"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/20/utils.zip" "utils.zip"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/24/sql_ingestion_tests.py" "sql_ingestion_tests.py"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/21/pyspark.zip" "pyspark.zip"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/25/py4j-0.10.9-src.zip" "py4j-0.10.9-src.zip"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/22/mssql-jdbc-12.8.0.jre11.jar" "mssql-jdbc-12.8.0.jre11.jar"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/23/__spark_conf__.zip" "__spark_conf__"
+echo "Copying debugging information"
+# Creating copy of launch script
+cp "launch_container.sh" "/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/launch_container.sh"
+chmod 640 "/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/launch_container.sh"
+# Determining directory contents
+echo "ls -l:" 1>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/directory.info"
+ls -l 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/directory.info"
+echo "find -L . -maxdepth 5 -ls:" 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/directory.info"
+find -L . -maxdepth 5 -ls 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/directory.info"
+echo "broken symlinks(find -L . -maxdepth 5 -type l -ls):" 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/directory.info"
+find -L . -maxdepth 5 -type l -ls 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/directory.info"
+echo "Launching container"
+exec /bin/bash -c "$JAVA_HOME/bin/java -server -Xmx2048m -Djava.io.tmpdir=$PWD/tmp -Dspark.yarn.app.container.log.dir=/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001 org.apache.spark.deploy.yarn.ApplicationMaster --class 'org.apache.spark.deploy.PythonRunner' --primary-py-file sql_ingestion_tests.py --properties-file $PWD/__spark_conf__/__spark_conf__.properties --dist-cache-conf $PWD/__spark_conf__/__spark_dist_cache__.properties 1> /var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/stdout 2> /var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_01_000001/stderr"
+
+End of LogType:launch_container.sh
+************************************************************************************
+
+Container: container_1723502017782_0003_02_000001 on dataship-cluster-w-1.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:stderr
+LogLastModifiedTime:Mon Aug 12 23:32:55 +0000 2024
+LogLength:1676
+LogContents:
+24/08/12 23:32:55 ERROR org.apache.spark.deploy.yarn.ApplicationMaster: User application exited with status 1
+24/08/12 23:32:55 ERROR org.apache.spark.deploy.yarn.ApplicationMaster: Uncaught exception: 
+org.apache.spark.SparkException: Exception thrown in awaitResult: 
+	at org.apache.spark.util.ThreadUtils$.awaitResult(ThreadUtils.scala:301)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.runDriver(ApplicationMaster.scala:504)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.run(ApplicationMaster.scala:268)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:899)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$3.run(ApplicationMaster.scala:898)
+	at java.security.AccessController.doPrivileged(Native Method)
+	at javax.security.auth.Subject.doAs(Subject.java:422)
+	at org.apache.hadoop.security.UserGroupInformation.doAs(UserGroupInformation.java:1762)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$.main(ApplicationMaster.scala:898)
+	at org.apache.spark.deploy.yarn.ApplicationMaster.main(ApplicationMaster.scala)
+Caused by: org.apache.spark.SparkUserAppException: User application exited with 1
+	at org.apache.spark.deploy.PythonRunner$.main(PythonRunner.scala:103)
+	at org.apache.spark.deploy.PythonRunner.main(PythonRunner.scala)
+	at sun.reflect.NativeMethodAccessorImpl.invoke0(Native Method)
+	at sun.reflect.NativeMethodAccessorImpl.invoke(NativeMethodAccessorImpl.java:62)
+	at sun.reflect.DelegatingMethodAccessorImpl.invoke(DelegatingMethodAccessorImpl.java:43)
+	at java.lang.reflect.Method.invoke(Method.java:498)
+	at org.apache.spark.deploy.yarn.ApplicationMaster$$anon$2.run(ApplicationMaster.scala:732)
+
+End of LogType:stderr
+***********************************************************************
+
+
+End of LogType:prelaunch.err
+******************************************************************************
+
+Container: container_1723502017782_0003_02_000001 on dataship-cluster-w-1.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:stdout
+LogLastModifiedTime:Mon Aug 12 23:32:55 +0000 2024
+LogLength:571
+LogContents:
+Traceback (most recent call last):
+  File "sql_ingestion_tests.py", line 79, in <module>
+    test_extract_sql()
+  File "sql_ingestion_tests.py", line 42, in test_extract_sql
+    credentials = fetch_credentials(file_path)
+  File "/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003/container_1723502017782_0003_02_000001/utils.zip/utils/ingestion_utils.py", line 6, in fetch_credentials
+FileNotFoundError: [Errno 2] No such file or directory: '/home/yasin/Enterprise-Data-Orchestration-and-Integration-Platform/config/credentials_yasin.json'
+
+End of LogType:stdout
+***********************************************************************
+
+Container: container_1723502017782_0003_02_000001 on dataship-cluster-w-1.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:prelaunch.out
+LogLastModifiedTime:Mon Aug 12 23:32:52 +0000 2024
+LogLength:100
+LogContents:
+Setting up env variables
+Setting up job resources
+Copying debugging information
+Launching container
+
+End of LogType:prelaunch.out
+******************************************************************************
+
+Container: container_1723502017782_0003_02_000001 on dataship-cluster-w-1.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:launch_container.sh
+LogLastModifiedTime:Mon Aug 12 23:32:52 +0000 2024
+LogLength:5542
+LogContents:
+#!/bin/bash
+
+set -o pipefail -e
+export PRELAUNCH_OUT="/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/prelaunch.out"
+exec >"${PRELAUNCH_OUT}"
+export PRELAUNCH_ERR="/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/prelaunch.err"
+exec 2>"${PRELAUNCH_ERR}"
+echo "Setting up env variables"
+export PATH=${PATH:-"/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin"}
+export JAVA_HOME=${JAVA_HOME:-"/usr/lib/jvm/temurin-8-jdk-amd64"}
+export HADOOP_COMMON_HOME=${HADOOP_COMMON_HOME:-"/usr/lib/hadoop"}
+export HADOOP_HDFS_HOME=${HADOOP_HDFS_HOME:-"/usr/lib/hadoop-hdfs"}
+export HADOOP_CONF_DIR=${HADOOP_CONF_DIR:-"/etc/hadoop/conf"}
+export HADOOP_YARN_HOME=${HADOOP_YARN_HOME:-"/usr/lib/hadoop-yarn"}
+export HADOOP_MAPRED_HOME=${HADOOP_MAPRED_HOME:-"/usr/lib/hadoop-mapreduce"}
+export LD_LIBRARY_PATH=${LD_LIBRARY_PATH:-":/usr/lib/hadoop/lib/native"}
+export LANG=${LANG:-"C.UTF-8"}
+export HADOOP_TOKEN_FILE_LOCATION="/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003/container_1723502017782_0003_02_000001/container_tokens"
+export CONTAINER_ID="container_1723502017782_0003_02_000001"
+export NM_PORT="8026"
+export NM_HOST="dataship-cluster-w-1.us-central1-c.c.encoded-region-428305-i4.internal"
+export NM_HTTP_PORT="8042"
+export LOCAL_DIRS="/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003"
+export LOCAL_USER_DIRS="/hadoop/yarn/nm-local-dir/usercache/yasin/"
+export LOG_DIRS="/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001"
+export USER="yasin"
+export LOGNAME="yasin"
+export HOME="/home/"
+export PWD="/hadoop/yarn/nm-local-dir/usercache/yasin/appcache/application_1723502017782_0003/container_1723502017782_0003_02_000001"
+export LOCALIZATION_COUNTERS="2704168,0,6,0,169"
+export JVM_PID="$$"
+export NM_AUX_SERVICE_spark_shuffle=""
+export NM_AUX_SERVICE_mapreduce_shuffle="AAA0+gAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAA="
+export SPARK_YARN_STAGING_DIR="hdfs://dataship-cluster-m/user/yasin/.sparkStaging/application_1723502017782_0003"
+export APP_SUBMIT_TIME_ENV="1723505567857"
+export PYSPARK_PYTHON="/opt/conda/default/bin/python"
+export PYTHONHASHSEED="0"
+export PYTHONPATH="/home/yasin/Enterprise-Data-Orchestration-and-Integration-Platform/src:$PWD/pyspark.zip:$PWD/py4j-0.10.9-src.zip:$PWD/utils.zip"
+export APPLICATION_WEB_PROXY_BASE="/proxy/application_1723502017782_0003"
+export SPARK_DIST_CLASSPATH=":/etc/hive/conf:/usr/local/share/google/dataproc/lib/*:/usr/share/java/mysql.jar"
+export CLASSPATH="$PWD:$PWD/__spark_conf__:$PWD/__spark_libs__/*:/usr/lib/spark/jars/*::/etc/hive/conf:/usr/local/share/google/dataproc/lib/*:/usr/share/java/mysql.jar:$PWD/__spark_conf__/__hadoop_conf__"
+export SPARK_USER="yasin"
+export MALLOC_ARENA_MAX="4"
+echo "Setting up job resources"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/20/utils.zip" "utils.zip"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/24/sql_ingestion_tests.py" "sql_ingestion_tests.py"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/21/pyspark.zip" "pyspark.zip"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/25/py4j-0.10.9-src.zip" "py4j-0.10.9-src.zip"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/22/mssql-jdbc-12.8.0.jre11.jar" "mssql-jdbc-12.8.0.jre11.jar"
+ln -sf -- "/hadoop/yarn/nm-local-dir/usercache/yasin/filecache/23/__spark_conf__.zip" "__spark_conf__"
+echo "Copying debugging information"
+# Creating copy of launch script
+cp "launch_container.sh" "/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/launch_container.sh"
+chmod 640 "/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/launch_container.sh"
+# Determining directory contents
+echo "ls -l:" 1>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/directory.info"
+ls -l 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/directory.info"
+echo "find -L . -maxdepth 5 -ls:" 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/directory.info"
+find -L . -maxdepth 5 -ls 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/directory.info"
+echo "broken symlinks(find -L . -maxdepth 5 -type l -ls):" 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/directory.info"
+find -L . -maxdepth 5 -type l -ls 1>>"/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/directory.info"
+echo "Launching container"
+exec /bin/bash -c "$JAVA_HOME/bin/java -server -Xmx2048m -Djava.io.tmpdir=$PWD/tmp -Dspark.yarn.app.container.log.dir=/var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001 org.apache.spark.deploy.yarn.ApplicationMaster --class 'org.apache.spark.deploy.PythonRunner' --primary-py-file sql_ingestion_tests.py --properties-file $PWD/__spark_conf__/__spark_conf__.properties --dist-cache-conf $PWD/__spark_conf__/__spark_dist_cache__.properties 1> /var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/stdout 2> /var/log/hadoop-yarn/userlogs/application_1723502017782_0003/container_1723502017782_0003_02_000001/stderr"
+
+End of LogType:launch_container.sh
+************************************************************************************
+
+Container: container_1723502017782_0003_02_000001 on dataship-cluster-w-1.us-central1-c.c.encoded-region-428305-i4.internal_8026
+LogAggregationType: AGGREGATED
+================================================================================================================================
+LogType:directory.info
+LogLastModifiedTime:Mon Aug 12 23:32:52 +0000 2024
+LogLength:5787
+LogContents:
+ls -l:
+total 48
+lrwxrwxrwx 1 yarn yarn   73 Aug 12 23:32 __spark_conf__ -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/23/__spark_conf__.zip
+-rw-r--r-- 1 yarn yarn   74 Aug 12 23:32 container_tokens
+-rwx------ 1 yarn yarn  708 Aug 12 23:32 default_container_executor.sh
+-rwx------ 1 yarn yarn  653 Aug 12 23:32 default_container_executor_session.sh
+-rwx------ 1 yarn yarn 5542 Aug 12 23:32 launch_container.sh
+lrwxrwxrwx 1 yarn yarn   82 Aug 12 23:32 mssql-jdbc-12.8.0.jre11.jar -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/22/mssql-jdbc-12.8.0.jre11.jar
+lrwxrwxrwx 1 yarn yarn   74 Aug 12 23:32 py4j-0.10.9-src.zip -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/25/py4j-0.10.9-src.zip
+lrwxrwxrwx 1 yarn yarn   66 Aug 12 23:32 pyspark.zip -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/21/pyspark.zip
+lrwxrwxrwx 1 yarn yarn   77 Aug 12 23:32 sql_ingestion_tests.py -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/24/sql_ingestion_tests.py
+drwx--x--- 2 yarn yarn 4096 Aug 12 23:32 tmp
+lrwxrwxrwx 1 yarn yarn   64 Aug 12 23:32 utils.zip -> /hadoop/yarn/nm-local-dir/usercache/yasin/filecache/20/utils.zip
+find -L . -maxdepth 5 -ls:
+  1584490      4 drwx--x---   3 yarn     yarn         4096 Aug 12 23:32 .
+  1584518      4 -rwx------   1 yarn     yarn          708 Aug 12 23:32 ./default_container_executor.sh
+  1584245      4 -r-x------   1 yarn     yarn         3855 Aug 12 23:32 ./utils.zip
+  1584498      4 -rw-r--r--   1 yarn     yarn           74 Aug 12 23:32 ./container_tokens
+  1584505      4 -rw-r--r--   1 yarn     yarn           52 Aug 12 23:32 ./.launch_container.sh.crc
+  1584433      4 -r-x------   1 yarn     yarn         2494 Aug 12 23:32 ./sql_ingestion_tests.py
+  1584491      4 drwx--x---   2 yarn     yarn         4096 Aug 12 23:32 ./tmp
+  1584271    868 -r-x------   1 yarn     yarn       887352 Aug 12 23:32 ./pyspark.zip
+  1584278   1448 -r-x------   1 yarn     yarn      1481161 Aug 12 23:32 ./mssql-jdbc-12.8.0.jre11.jar
+  1584506      4 -rwx------   1 yarn     yarn          653 Aug 12 23:32 ./default_container_executor_session.sh
+  1584504      8 -rwx------   1 yarn     yarn         5542 Aug 12 23:32 ./launch_container.sh
+  1584511      4 -rw-r--r--   1 yarn     yarn           16 Aug 12 23:32 ./.default_container_executor_session.sh.crc
+  1584499      4 -rw-r--r--   1 yarn     yarn           12 Aug 12 23:32 ./.container_tokens.crc
+  1584456     44 -r-x------   1 yarn     yarn        41587 Aug 12 23:32 ./py4j-0.10.9-src.zip
+  1584521      4 -rw-r--r--   1 yarn     yarn           16 Aug 12 23:32 ./.default_container_executor.sh.crc
+  1584281      4 drwx------   3 yarn     yarn         4096 Aug 12 23:32 ./__spark_conf__
+  1584299      4 drwx------   2 yarn     yarn         4096 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__
+  1584384      4 -r-x------   1 yarn     yarn         2316 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/ssl-client.xml.example
+  1584357      4 -r-x------   1 yarn     yarn         1335 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/configuration.xsl
+  1584353      8 -r-x------   1 yarn     yarn         4139 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/core-site.xml
+  1584397      8 -r-x------   1 yarn     yarn         4113 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/mapred-queues.xml.template
+  1584324     20 -r-x------   1 yarn     yarn        17275 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hadoop-env.sh
+  1584326      4 -r-x------   1 yarn     yarn         3321 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hadoop-metrics2.properties
+  1584331      4 -r-x------   1 yarn     yarn           82 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/yarn-timelineserver.logging.properties
+  1584365      8 -r-x------   1 yarn     yarn         7552 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/yarn-env.sh
+  1584386     12 -r-x------   1 yarn     yarn        11392 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hadoop-policy.xml
+  1584393      4 -r-x------   1 yarn     yarn          977 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/fairscheduler.xml
+  1584368      4 -r-x------   1 yarn     yarn         1940 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/container-executor.cfg
+  1584325     16 -r-x------   1 yarn     yarn        14772 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/log4j.properties
+  1584354     12 -r-x------   1 yarn     yarn         9533 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/capacity-scheduler.xml
+  1584332     12 -r-x------   1 yarn     yarn         8742 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/yarn-site.xml
+  1584381      4 -r-x------   1 yarn     yarn         2163 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/mapred-env.sh
+  1584396      4 -r-x------   1 yarn     yarn         2697 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/ssl-server.xml.example
+  1584362      8 -r-x------   1 yarn     yarn         7741 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/hdfs-site.xml
+  1584323     12 -r-x------   1 yarn     yarn         8428 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/mapred-site.xml
+  1584385      4 -r-x------   1 yarn     yarn         1535 Aug 12 23:32 ./__spark_conf__/__hadoop_conf__/distcp-default.xml
+  1584286      4 -r-x------   1 yarn     yarn         1225 Aug 12 23:32 ./__spark_conf__/log4j.properties
+  1584398    152 -r-x------   1 yarn     yarn       153429 Aug 12 23:32 ./__spark_conf__/__spark_hadoop_conf__.xml
+  1584298      4 -r-x------   1 yarn     yarn          703 Aug 12 23:32 ./__spark_conf__/metrics.properties
+  1584427      4 -r-x------   1 yarn     yarn          924 Aug 12 23:32 ./__spark_conf__/__spark_dist_cache__.properties
+  1584422      4 -r-x------   1 yarn     yarn         2457 Aug 12 23:32 ./__spark_conf__/__spark_conf__.properties
+broken symlinks(find -L . -maxdepth 5 -type l -ls):
+
+End of LogType:directory.info
+*******************************************************************************
+
